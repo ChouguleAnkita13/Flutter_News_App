@@ -11,8 +11,8 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         leading: Image.asset(
           "assets/images/logo.png",
-          height: 20,
-          width: 20,
+          height: 45,
+          width: 45,
         ),
         title: Text(
           "inshorts",

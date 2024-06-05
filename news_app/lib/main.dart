@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/route/app_route.dart';
+import 'package:news_app/route/app_route.dart'; // Import app routes
 import 'package:news_app/controller/news_provider.dart';
 import 'package:provider/provider.dart'; 
 

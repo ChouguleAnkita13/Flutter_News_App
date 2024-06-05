@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
       body: GestureDetector(
         onTap: () {
           // Navigate to the home screen
-          Navigator.of(context).pushNamed("/home");
+          Navigator.of(context).pushReplacementNamed("/login");
         },
         // Stack to overlap image and text
         child: Stack(
