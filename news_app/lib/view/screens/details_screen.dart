@@ -61,14 +61,14 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
                           ),
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 15,
                         ),
                         Text(
                           widget.detailNews.content!,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w400,
-                            color: const Color.fromRGBO(34, 31, 31, 1),
-                            fontSize: 21,
+                            color: const Color.fromRGBO(85, 85, 85, 1),
+                            fontSize: 20,
                           ),
                         ),
                         const SizedBox(
@@ -108,7 +108,7 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
                                 onTap: () async {
                                   await launchUrlString(
                                     mode: LaunchMode.inAppWebView,
-                                      widget.detailNews.readMoreUrl!);
+                                      widget.detailNews.readMoreUrl!);// Open the news URL in a web view when tapped
                                 },
                               ),
                               Text("News Source",

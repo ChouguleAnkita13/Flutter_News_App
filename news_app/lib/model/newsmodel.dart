@@ -1,24 +1,23 @@
+// Model class representing the structure of news data
 class NewsModel {
   String? category;
   List<Data>? data;
   bool? success;
 
-
   NewsModel(Map<String, dynamic> json) {
     category = json['category'];
-    success=json["success"];
-    data=[];
-    if(json["data"]!=null){
-      json["data"].forEach((mapObject){
-        Data dataObj=Data(mapObject);
+    success = json["success"];
+    data = [];
+    if (json["data"] != null) {
+      json["data"].forEach((mapObject) {
+        Data dataObj = Data(mapObject);
         data!.add(dataObj);
       });
     }
-  }  
+  }
 }
 
- 
-
+// Model class representing individual news data
 class Data {
   String? author;
   String? content;
@@ -29,8 +28,6 @@ class Data {
   String? time;
   String? title;
   String? url;
-
- 
 
   Data(Map<String, dynamic> json) {
     author = json['author'];
