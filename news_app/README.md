@@ -2,7 +2,8 @@
 
 News App developed with Flutter.
 
- ![splash_screen](https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/5a150f48-51b2-406d-b197-34e0cc8c289a=250x250)
+ <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/5a150f48-51b2-406d-b197-34e0cc8c289a" alt="Image Description" width=250 height=300>
+
 
 
 ## Project Structure
