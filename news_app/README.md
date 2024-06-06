@@ -3,8 +3,10 @@
 News App developed with Flutter.
 
 ## Project Structure
+
 The project follows the MVC (Model-View-Controller) architecture for better organization and scalability.
 
+```bash
 lib/
 ├── controller/
 │   ├── news_provider.dart         # Business logic and state management
@@ -13,15 +15,16 @@ lib/
 │   └── news_model.dart            # Data models
 ├── view/
 │   ├── screens/
-│   │   ├── bookmarked_screen.dart # UI for bookmarked news
-│   │   ├── home_screen.dart       # UI for home screen
-│   │   ├── login_screen.dart      # UI for login screen
-│   │   ├── signup_screen.dart     # UI for signup screen
-│   │   ├── details_screen.dart    # UI for news details
-│   │   └── splash_screen.dart     # UI for splash screen
+│   │   ├── bookmarked_news_screen.dart # UI for bookmarked news
+│   │   ├── home.dart                   # UI for home screen
+│   │   ├── login_screen.dart           # UI for login screen
+│   │   ├── signup.dart                 # UI for signup screen
+│   │   ├── details_screen.dart         # UI for news details
+│   │   └── splash_screen.dart          # UI for splash screen
 │   └── widgets/
-│       ├── menubar.dart           # Custom menu bar widget
-│       └── news.dart              # Custom widget to display news articles
+│       ├── menubar.dart                # Custom menu bar widget
+│       └── news.dart                   # Custom widget to display news articles
 ├── route/
-│   └── app_route.dart             # Application routes
-└── main.dart                      # Application entry point
+│   └── app_route.dart                  # Application routes
+└── main.dart                           # Application entry point
+```
