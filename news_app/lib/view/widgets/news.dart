@@ -17,7 +17,7 @@ class _NewsState extends State<News> {
     return Consumer<NewsProvider>(
       builder: (context, newsProvider, child) {
         return Container(
-          height: MediaQuery.of(context).size.height / 1.5,
+          height: MediaQuery.of(context).size.height / 1.44,
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),

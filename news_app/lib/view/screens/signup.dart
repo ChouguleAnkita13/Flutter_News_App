@@ -178,7 +178,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       Container(
                         color: const Color.fromRGBO(240, 241, 250, 0.4),
-                        margin: const EdgeInsets.only(top: 20, bottom: 15),
+                        margin: const EdgeInsets.only(top: 20, bottom: 5),
                         child: TextFormField(
                           controller: _passwordController,
                           cursorColor: const Color.fromRGBO(34, 31, 31, 0.4),
@@ -247,9 +247,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   });
                                 }),
                           ),
-                          const SizedBox(
-                            width: 5,
-                          ),
+                         
                           Text.rich(TextSpan(
                             children: [
                               TextSpan(

@@ -118,7 +118,7 @@ class BookmarkedNewsScreen extends StatelessWidget {
                           news.imageUrl!,
                           fit: BoxFit.cover,
                           width: double.infinity,
-                          height: 150,
+                          height: 200,
                         ),
                         Positioned.fill(
                           child: BackdropFilter(

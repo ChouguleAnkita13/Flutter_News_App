@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w500,
                             color: const Color.fromRGBO(34, 31, 31, 0.7),
-                            fontSize: 16),
+                            fontSize: 15),
                       ),
                       Container(
                         color: const Color.fromRGBO(240, 241, 250, 0.4),
@@ -193,7 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Future.delayed(const Duration(milliseconds: 400),
                                 () {
                               Navigator.of(context)
-                                  .pushReplacementNamed("/home");
+                                  .popAndPushNamed("/home");
                             });
                           }
                         },
