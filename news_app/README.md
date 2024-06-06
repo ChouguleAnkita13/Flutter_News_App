@@ -43,3 +43,7 @@ lib/
 #### provider: 
 Provider is a state management library for Flutter applications, used to manage application state and data flow efficiently. It enables the sharing of data between different parts of the application and helps maintain a clean and scalable codebase.
 
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
