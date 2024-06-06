@@ -4,8 +4,8 @@ News App developed with Flutter.
 
  
 <div style="display: flex;">
-    <img src="D:\Core2Web_Flutter\Flutter_News_App\screenshots" alt="Image 1" style="margin-right: 10px;" width="300" height="600">
-    <img src="D:\Core2Web_Flutter\Flutter_News_App\screenshots" alt="Image 2" style="margin-right: 10px;" width="300" height="600">
+    <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/4552e662-e92b-49a8-bd01-26f0711bad6d" alt="Image 1" style="margin-right: 10px;" width="300" height="600">
+    <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/4552e662-e92b-49a8-bd01-26f0711bad6d" alt="Image 2" style="margin-right: 10px;" width="300" height="600">
     <!-- Add more images as needed -->
 </div>
 
