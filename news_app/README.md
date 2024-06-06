@@ -2,6 +2,9 @@
 
 News App developed with Flutter.
 
+ ![splash_screen](https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/5a150f48-51b2-406d-b197-34e0cc8c289a)
+
+
 ## Project Structure
 
 The project follows the MVC (Model-View-Controller) architecture for better organization and scalability.
