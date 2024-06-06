@@ -4,8 +4,14 @@ News App developed with Flutter.
 
  
 <div style="display: flex;">
-    <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/4552e662-e92b-49a8-bd01-26f0711bad6d" alt="Image 1" style="margin-right: 10px;" width="300" height="600">
-    <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/4552e662-e92b-49a8-bd01-26f0711bad6d" alt="Image 2" style="margin-right: 10px;" width="300" height="600">
+    <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/4552e662-e92b-49a8-bd01-26f0711bad6d" alt="splash" style="margin-right: 10px;" width="300" height="600">
+    <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/4552e662-e92b-49a8-bd01-26f0711bad6d" alt="login" style="margin-right: 10px;" width="300" height="600">
+ <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/9f671095-bc53-40e2-b10d-ad0395bec7bf" alt="Home 1" style="margin-right: 10px;" width="300" height="600">
+    <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/80bec03f-0af4-4d7b-9106-5e70ac783b69" alt="Bookmark 2" style="margin-right: 10px;" width="300" height="600">
+ <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/1760e300-9d3e-4f62-ae6d-305490f32af3" alt="Home 2" style="margin-right: 10px;" width="300" height="600">
+ <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/8890f9d4-9878-4cde-bc92-f8d4b564a049" alt="Bookmark 2" style="margin-right: 10px;" width="300" height="600">
+ 
+ 
     <!-- Add more images as needed -->
 </div>
 
