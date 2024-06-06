@@ -1,16 +1,27 @@
-# news_app
+# Flutter News Application
 
-A new Flutter project.
+News App developed with Flutter.
 
-## Getting Started
+## Project Structure
+The project follows the MVC (Model-View-Controller) architecture for better organization and scalability.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+lib/
+├── controller/
+│   ├── news_provider.dart         # Business logic and state management
+│   └── getnews.dart               # API call to fetch news data
+├── model/
+│   └── news_model.dart            # Data models
+├── view/
+│   ├── screens/
+│   │   ├── bookmarked_screen.dart # UI for bookmarked news
+│   │   ├── home_screen.dart       # UI for home screen
+│   │   ├── login_screen.dart      # UI for login screen
+│   │   ├── signup_screen.dart     # UI for signup screen
+│   │   ├── details_screen.dart    # UI for news details
+│   │   └── splash_screen.dart     # UI for splash screen
+│   └── widgets/
+│       ├── menubar.dart           # Custom menu bar widget
+│       └── news.dart              # Custom widget to display news articles
+├── route/
+│   └── app_route.dart             # Application routes
+└── main.dart                      # Application entry point
