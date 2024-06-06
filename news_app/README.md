@@ -2,10 +2,12 @@
 
 News App developed with Flutter.
 
- <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/5a150f48-51b2-406d-b197-34e0cc8c289a" width=300 height=600>
- <img src="https://github.com/ChouguleAnkita13/Flutter_News_App/assets/155567405/c5b75821-45cd-44a0-b8ec-1f842040a6d" width=300 height=600>
  
-
+<div style="display: flex;">
+    <img src="D:\Core2Web_Flutter\Flutter_News_App\screenshots" alt="Image 1" style="margin-right: 10px;" width="300" height="600">
+    <img src="D:\Core2Web_Flutter\Flutter_News_App\screenshots" alt="Image 2" style="margin-right: 10px;" width="300" height="600">
+    <!-- Add more images as needed -->
+</div>
 
 
 
