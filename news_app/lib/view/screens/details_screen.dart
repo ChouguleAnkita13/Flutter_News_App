@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/model/newsmodel.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:news_app/theme/app_theme.dart'; // Import the theme file
 
 class NewsDetailsScreen extends StatefulWidget {
   const NewsDetailsScreen({super.key, required this.detailNews});
@@ -39,9 +39,9 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
                       children: [
                         Text(
                           widget.detailNews.title!,
-                          style: GoogleFonts.poppins(
+                          style: AppTheme.lightTheme.textTheme.titleLarge
+                              ?.copyWith(
                             fontWeight: FontWeight.w700,
-                            color: const Color.fromRGBO(34, 31, 31, 1),
                             fontSize: 28,
                           ),
                         ),
@@ -53,9 +53,9 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
                               const Color.fromRGBO(242, 242, 242, 1),
                           label: Text(
                             widget.detailNews.date!,
-                            style: GoogleFonts.poppins(
+                            style: AppTheme.lightTheme.textTheme.bodyMedium
+                                ?.copyWith(
                               fontWeight: FontWeight.w400,
-                              color: const Color.fromRGBO(34, 31, 31, 1),
                               fontSize: 18,
                             ),
                           ),
@@ -65,9 +65,9 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
                         ),
                         Text(
                           widget.detailNews.content!,
-                          style: GoogleFonts.poppins(
+                          style:
+                              AppTheme.lightTheme.textTheme.bodyLarge?.copyWith(
                             fontWeight: FontWeight.w400,
-                            color: const Color.fromRGBO(85, 85, 85, 1),
                             fontSize: 20,
                           ),
                         ),
@@ -79,12 +79,14 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
                           child: Chip(
                             backgroundColor:
                                 const Color.fromRGBO(242, 242, 242, 1),
-                            label: Text("Author : ${widget.detailNews.author}",
-                                style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w400,
-                                  color: const Color.fromRGBO(34, 31, 31, 1),
-                                  fontSize: 15,
-                                )),
+                            label: Text(
+                              "Author : ${widget.detailNews.author}",
+                              style: AppTheme.lightTheme.textTheme.bodyMedium
+                                ?.copyWith(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 18,
+                            ),
+                            ),
                           ),
                         ),
                         const SizedBox(
@@ -96,28 +98,39 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
                           elevation: 15,
                           color: Colors.black12,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(35)),
+                            borderRadius: BorderRadius.circular(35),
+                          ),
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
                               InkWell(
+                                onTap: () async {
+                                  if (await canLaunchUrlString(
+                                      widget.detailNews.readMoreUrl!)) {
+                                    await launchUrlString(
+                                        widget.detailNews.readMoreUrl!,
+                                        mode: LaunchMode.inAppWebView);
+                                  }
+                                },
                                 child: Image.network(
                                   widget.detailNews.imageUrl!,
                                   fit: BoxFit.cover,
+                                  width: MediaQuery.of(context).size.width,
                                 ),
-                                onTap: () async {
-                                  await launchUrlString(
-                                    mode: LaunchMode.inAppWebView,
-                                      widget.detailNews.readMoreUrl!);// Open the news URL in a web view when tapped
-                                },
                               ),
-                              Text("News Source",
-                                  style: GoogleFonts.poppins(
+                              Positioned(
+                                bottom: 10,
+                                child: Text(
+                                  "News Source",
+                                  style: AppTheme
+                                      .lightTheme.textTheme.titleMedium
+                                      ?.copyWith(
                                     fontWeight: FontWeight.w600,
-                                    color:
-                                        const Color.fromRGBO(255, 255, 255, 1),
+                                    color: Colors.white,
                                     fontSize: 24,
-                                  )),
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:news_app/theme/app_theme.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,17 +18,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   bool _isPasswordVisiable = true;
 
-  // Define common border styles
-  OutlineInputBorder commonOutlineInputBorder(
-      {Color color = const Color.fromRGBO(34, 31, 31, 0.2)}) {
-    return OutlineInputBorder(
-      borderSide: BorderSide(
-        color: color,
-      ),
-      borderRadius: BorderRadius.circular(15),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,10 +31,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     Navigator.of(context).pushNamed("/signup");
                   },
-                  icon: const Icon(
+                  icon:  Icon(
                     Icons.arrow_back_ios,
                     size: 24,
-                    color: Color.fromRGBO(34, 31, 31, 0.8),
+                    color: AppTheme.textColor.withOpacity(0.8),
                   )),
               const SizedBox(
                 height: 50,
@@ -61,20 +50,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       Text(
                         "inshorts",
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w700,
-                            color: const Color.fromRGBO(34, 31, 31, 1),
-                            fontSize: 45),
+                        style: AppTheme.lightTheme.textTheme.displayLarge,
                       ),
                       const SizedBox(
                         height: 5,
                       ),
                       Text(
                         "Welcome! Lets dive into your account",
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w500,
-                            color: const Color.fromRGBO(34, 31, 31, 0.7),
-                            fontSize: 15),
+                        style: AppTheme.lightTheme.textTheme.titleMedium,
                       ),
                       Container(
                         color: const Color.fromRGBO(240, 241, 250, 0.4),
@@ -82,22 +65,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: TextFormField(
                           controller: _emailController,
                           keyboardType: TextInputType.emailAddress,
-                          cursorColor: const Color.fromRGBO(34, 31, 31, 0.4),
+                          cursorColor: AppTheme.textColor.withOpacity(0.4),
                           decoration: InputDecoration(
-                            prefixIcon: const Icon(
+                            prefixIcon:  Icon(
                               Icons.email_outlined,
                               size: 26,
-                              color: Color.fromRGBO(34, 31, 31, 0.4),
+                              color: AppTheme.textColor.withOpacity(0.4),
                             ),
                             hintText: "  Enter your email",
-                            hintStyle: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w400,
-                                color: const Color.fromRGBO(34, 31, 31, 0.6),
-                                fontSize: 14),
-                            enabledBorder: commonOutlineInputBorder(),
-                            focusedBorder: commonOutlineInputBorder(),
-                            errorBorder: commonOutlineInputBorder(),
-                            focusedErrorBorder: commonOutlineInputBorder(),
+                            hintStyle: AppTheme.lightTheme.inputDecorationTheme.hintStyle,
                           ),
                           validator: (value) {
                             if (value!.trim().isEmpty ||
@@ -114,14 +90,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         margin: const EdgeInsets.only(top: 25, bottom: 15),
                         child: TextFormField(
                           controller: _passwordController,
-                          cursorColor: const Color.fromRGBO(34, 31, 31, 0.4),
+                          cursorColor: AppTheme.textColor.withOpacity(0.4),
                           obscureText: _isPasswordVisiable,
                           obscuringCharacter: "*",
                           decoration: InputDecoration(
-                            prefixIcon: const Icon(
+                            prefixIcon:  Icon(
                               Icons.lock_outline_rounded,
                               size: 26,
-                              color: Color.fromRGBO(34, 31, 31, 0.4),
+                              color: AppTheme.textColor.withOpacity(0.4),
                             ),
                             suffixIcon: GestureDetector(
                               onTap: () {
@@ -134,19 +110,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ? Icons.visibility_off_outlined
                                     : Icons.visibility_outlined,
                                 size: 26,
-                                color: const Color.fromRGBO(34, 31, 31, 0.4),
+                                color: AppTheme.textColor.withOpacity(0.4),
                               ),
                             ),
                             hintText: "  Enter your password",
-                            hintStyle: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w400,
-                                color: const Color.fromRGBO(34, 31, 31, 0.6),
-                                fontSize: 14),
-                            errorMaxLines: 2,
-                            enabledBorder: commonOutlineInputBorder(),
-                            focusedBorder: commonOutlineInputBorder(),
-                            errorBorder: commonOutlineInputBorder(),
-                            focusedErrorBorder: commonOutlineInputBorder(),
+                            hintStyle: AppTheme.lightTheme.inputDecorationTheme.hintStyle,
                           ),
                           validator: (value) {
                             if (value!.trim().isEmpty) {
@@ -156,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             if (!RegExp(
                                     r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+={}|;\<>?,.\/~`\-\\[\]]).{8,}$')
                                 .hasMatch(value)) {
-                              return 'Please enter password with one uppercase letter, one lowercase letter, one digit,and one special character ';
+                              return 'Please enter password with one uppercase letter, one lowercase letter, one digit, and one special character ';
                             }
                             return null;
                           },
@@ -167,10 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         children: [
                           Text(
                             "Forgot password?",
-                            style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w500,
-                                color: const Color.fromRGBO(255, 58, 68, 1),
-                                fontSize: 13),
+                            style: AppTheme.lightTheme.textTheme.bodySmall,
                           ),
                         ],
                       ),
@@ -179,23 +144,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          bool loginValidated =
-                              _formKey.currentState!.validate();
-                          if (loginValidated) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                backgroundColor: Colors.green,
-                                content: Text("Login successful"),
-                                duration: Duration(milliseconds: 100),
-                              ),
-                            );
+                          // bool loginValidated =
+                          //     _formKey.currentState!.validate();
+                          // if (loginValidated) {
+                          //   ScaffoldMessenger.of(context).showSnackBar(
+                          //     const SnackBar(
+                          //       backgroundColor: Colors.green,
+                          //       content: Text("Login successful"),
+                          //       duration: Duration(milliseconds: 100),
+                          //     ),
+                          //   );
 
-                            Future.delayed(const Duration(milliseconds: 400),
-                                () {
+                          //   Future.delayed(const Duration(milliseconds: 400),
+                          //       () {
                               Navigator.of(context)
                                   .popAndPushNamed("/home");
-                            });
-                          }
+                          //   });
+                          // }
                         },
                         child: Container(
                           width: MediaQuery.sizeOf(context).width,
@@ -206,20 +171,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   color:
                                       const Color.fromRGBO(255, 179, 182, 1)),
                               borderRadius: BorderRadius.circular(32),
-                              gradient: const LinearGradient(
-                                colors: [
-                                  Color.fromRGBO(255, 58, 68, 1),
-                                  Color.fromRGBO(255, 128, 134, 1),
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                              )),
+                              gradient: AppTheme.primaryGradient),
                           child: Text(
                             "Sign In",
-                            style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w600,
-                                color: const Color.fromRGBO(255, 255, 255, 1),
-                                fontSize: 21),
+                            style: AppTheme.lightTheme.textTheme.labelLarge,
                           ),
                         ),
                       ),
@@ -227,10 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text.rich(TextSpan(children: [
                         TextSpan(
                           text: "Don’t have an account?",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w400,
-                              color: const Color.fromRGBO(34, 31, 31, 1),
-                              fontSize: 14),
+                          style: AppTheme.lightTheme.textTheme.bodyLarge,
                         ),
                         WidgetSpan(
                             child: GestureDetector(
@@ -239,10 +191,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: Text(
                             "  Sign up",
-                            style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w600,
-                                color: const Color.fromRGBO(255, 58, 68, 1),
-                                fontSize: 14),
+                            style: AppTheme.lightTheme.textTheme.bodyLarge?.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: AppTheme.primaryColor,
+                            ),
                           ),
                         ))
                       ])),

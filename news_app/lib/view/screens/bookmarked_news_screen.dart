@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:news_app/theme/app_theme.dart';  // Import the app theme
 import 'package:news_app/controller/news_provider.dart';
 import 'package:news_app/view/screens/details_screen.dart';
 import 'package:provider/provider.dart';
@@ -24,11 +24,7 @@ class BookmarkedNewsScreen extends StatelessWidget {
         ),
         title: Text(
           'Bookmarked News',
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.w700,
-            color: const Color.fromRGBO(0, 0, 0, 1),
-            fontSize: 20,
-          ),
+          style: AppTheme.lightTheme.textTheme.titleLarge, // Use the theme's text style
         ),
         automaticallyImplyLeading: false,
       ),
@@ -40,56 +36,43 @@ class BookmarkedNewsScreen extends StatelessWidget {
                   const Icon(
                     Icons.bookmark_outline,
                     size: 60,
-                    color: Color.fromRGBO(0, 0, 0, 0.5),
+                    color: AppTheme.textColorLight, // Use the theme's text color
                   ),
                   const SizedBox(height: 20),
                   Text(
                     'No bookmarked news',
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w500,
-                      color: const Color.fromRGBO(0, 0, 0, 0.5),
+                    style: AppTheme.lightTheme.textTheme.titleMedium?.copyWith(
+                      color: AppTheme.textColorLight, // Use the theme's text style
                       fontSize: 18,
                     ),
                   ),
                   const SizedBox(height: 20),
-                   GestureDetector(
-                    onTap: (){
-                          Navigator.of(context).pushNamed("/home");
-                        },
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pushNamed("/home");
+                    },
                     child: Container(
                       width: 300,
                       padding: const EdgeInsets.symmetric(vertical: 12),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        gradient: const LinearGradient(
-                          colors: [
-                            Color.fromRGBO(255, 128, 134, 1),
-                            Color.fromRGBO(255, 58, 68, 1),
-                          ],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                        ),
+                        gradient: AppTheme.primaryGradient, // Use the theme's gradient
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withOpacity(0.3),
                             spreadRadius: 1,
                             blurRadius: 3,
-                            offset:
-                                const Offset(0, 2), // changes position of shadow
+                            offset: const Offset(0, 2), // changes position of shadow
                           ),
                         ],
                       ),
                       child: Text(
                         'Back to News',
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                          color: Colors.white,
-                        ),
+                        style: AppTheme.lightTheme.textTheme.labelLarge, // Use the theme's text style
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             )
@@ -101,8 +84,7 @@ class BookmarkedNewsScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) =>
-                            NewsDetailsScreen(detailNews: news),
+                        builder: (context) => NewsDetailsScreen(detailNews: news),
                       ),
                     );
                   },
@@ -151,33 +133,29 @@ class BookmarkedNewsScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   news.title!,
-                                  style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w700,
+                                  style: AppTheme.lightTheme.textTheme.titleLarge?.copyWith(
                                     color: Colors.white,
-                                    fontSize: 16,
-                                  ),
+                                    fontSize: 16
+                                  ), // Use the theme's text style
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       news.author ?? 'Unknown',
-                                      style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.w500,
+                                      style: AppTheme.lightTheme.textTheme.titleMedium?.copyWith(
                                         color: Colors.white70,
-                                        fontSize: 14,
-                                      ),
+                                        fontSize: 14
+                                      ), // Use the theme's text style
                                     ),
                                     Text(
                                       news.date!,
-                                      style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.w500,
+                                      style:AppTheme.lightTheme.textTheme.titleMedium?.copyWith(
                                         color: Colors.white70,
-                                        fontSize: 14,
-                                      ),
+                                        fontSize: 14
+                                      ),  // Use the theme's text style
                                     ),
                                   ],
                                 ),

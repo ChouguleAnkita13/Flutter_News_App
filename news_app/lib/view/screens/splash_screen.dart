@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:news_app/theme/app_theme.dart'; // Import the theme file
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -26,10 +26,9 @@ class SplashScreen extends StatelessWidget {
             top: MediaQuery.of(context).size.height / 3,
             child: Text(
               "inshorts",
-              style: GoogleFonts.workSans(
-                fontWeight: FontWeight.w700,
-                color: const Color.fromRGBO(255, 255, 255, 1),
-                fontSize: 64,
+              style: AppTheme.lightTheme.textTheme.displayLarge?.copyWith(
+                color: Colors.white,
+                fontSize: 64
               ),
             ),
           ),

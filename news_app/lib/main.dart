@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/route/app_route.dart'; // Import app routes
 import 'package:news_app/controller/news_provider.dart';
 import 'package:provider/provider.dart'; 
+import 'package:news_app/theme/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         home: initialScreen, 
         routes: appRoutes, 
+         theme: AppTheme.lightTheme, // Apply the theme
         debugShowCheckedModeBanner: false, // Disable the debug banner
       ),
     );

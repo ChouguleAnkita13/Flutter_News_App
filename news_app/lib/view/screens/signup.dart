@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:news_app/theme/app_theme.dart'; // Import the theme file
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -18,19 +18,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   //GlobalKey
   final GlobalKey<FormState> _formKey = GlobalKey();
 
-  bool _isPasswordVisiable = true;
+  bool _isPasswordVisible = true;
   bool _isChecked = false;
-
-  // Define common border styles
-  OutlineInputBorder commonOutlineInputBorder(
-      {Color color = const Color.fromRGBO(34, 31, 31, 0.2)}) {
-    return OutlineInputBorder(
-      borderSide: BorderSide(
-        color: color,
-      ),
-      borderRadius: BorderRadius.circular(15),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,292 +31,277 @@ class _SignUpScreenState extends State<SignUpScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed("/login");
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    size: 24,
-                    color: Color.fromRGBO(34, 31, 31, 0.8),
-                  )),
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/login");
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios,
+                  size: 24,
+                  color: AppTheme.textColor,
+                ),
+              ),
               Form(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/logo.png",
-                        height: 80,
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/images/logo.png",
+                      height: 80,
+                    ),
+                    Text(
+                      "inshorts",
+                      style: AppTheme.lightTheme.textTheme.displayLarge,
+                    ),
+                    const SizedBox(height: 30),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "Create an account",
+                        style: AppTheme.lightTheme.textTheme.titleLarge,
                       ),
-                      Text(
-                        "inshorts",
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w700,
-                            color: const Color.fromRGBO(34, 31, 31, 1),
-                            fontSize: 45),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "Create an account ",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600,
-                              color: const Color.fromRGBO(34, 31, 31, 0.7),
-                              fontSize: 20),
-                        ),
-                      ),
-                      Container(
-                        color: const Color.fromRGBO(240, 241, 250, 0.4),
-                        margin: const EdgeInsets.only(top: 20),
-                        child: TextFormField(
-                          controller: _nameController,
-                          cursorColor: const Color.fromRGBO(34, 31, 31, 0.4),
-                          decoration: InputDecoration(
-                            prefixIcon: const Icon(
-                              Icons.person_outline,
-                              size: 26,
-                              color: Color.fromRGBO(34, 31, 31, 0.4),
-                            ),
-                            hintText: "  Enter your name",
-                            hintStyle: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w400,
-                                color: const Color.fromRGBO(34, 31, 31, 0.6),
-                                fontSize: 14),
-                            enabledBorder: commonOutlineInputBorder(),
-                            focusedBorder: commonOutlineInputBorder(),
-                            errorBorder: commonOutlineInputBorder(),
-                            focusedErrorBorder: commonOutlineInputBorder(),
+                    ),
+                    Container(
+                      color: const Color.fromRGBO(240, 241, 250, 0.4),
+                      margin: const EdgeInsets.only(top: 20),
+                      child: TextFormField(
+                        controller: _nameController,
+                        cursorColor: AppTheme.textColorLight,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.person_outline,
+                            size: 26,
+                            color: AppTheme.textColor.withOpacity(0.4),
                           ),
-                          validator: (value) {
-                            if (value!.trim().isEmpty || value.length < 4) {
-                              return "Please Enter Name";
-                            }
-                            return null;
-                          },
+                          hintText: "  Enter your name",
+                          hintStyle: AppTheme
+                              .lightTheme.inputDecorationTheme.hintStyle,
+                          enabledBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.enabledBorder,
+                          focusedBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.focusedBorder,
+                          errorBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.errorBorder,
+                          focusedErrorBorder: AppTheme.lightTheme
+                              .inputDecorationTheme.focusedErrorBorder,
                         ),
-                      ),
-                      Container(
-                        color: const Color.fromRGBO(240, 241, 250, 0.4),
-                        margin: const EdgeInsets.only(top: 20),
-                        child: TextFormField(
-                          controller: _phoneController,
-                          keyboardType: TextInputType.number,
-                          cursorColor: const Color.fromRGBO(34, 31, 31, 0.4),
-                          decoration: InputDecoration(
-                            prefixIcon: const Icon(
-                              Icons.phone_outlined,
-                              size: 26,
-                              color: Color.fromRGBO(34, 31, 31, 0.4),
-                            ),
-                            hintText: "  Enter your phone number",
-                            hintStyle: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w400,
-                                color: const Color.fromRGBO(34, 31, 31, 0.6),
-                                fontSize: 14),
-                            enabledBorder: commonOutlineInputBorder(),
-                            focusedBorder: commonOutlineInputBorder(),
-                            errorBorder: commonOutlineInputBorder(),
-                            focusedErrorBorder: commonOutlineInputBorder(),
-                          ),
-                          validator: (value) {
-                            if (value!.trim().isEmpty) {
-                              return "Please Enter Mobile Number";
-                            }
-                            if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
-                              return 'Please enter a valid 10-digit mobile number';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      Container(
-                        color: const Color.fromRGBO(240, 241, 250, 0.4),
-                        margin: const EdgeInsets.only(top: 20),
-                        child: TextFormField(
-                          controller: _emailController,
-                          keyboardType: TextInputType.emailAddress,
-                          cursorColor: const Color.fromRGBO(34, 31, 31, 0.4),
-                          decoration: InputDecoration(
-                            prefixIcon: const Icon(
-                              Icons.email_outlined,
-                              size: 26,
-                              color: Color.fromRGBO(34, 31, 31, 0.4),
-                            ),
-                            hintText: "  Enter your email",
-                            hintStyle: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w400,
-                                color: const Color.fromRGBO(34, 31, 31, 0.6),
-                                fontSize: 14),
-                            enabledBorder: commonOutlineInputBorder(),
-                            focusedBorder: commonOutlineInputBorder(),
-                            errorBorder: commonOutlineInputBorder(),
-                            focusedErrorBorder: commonOutlineInputBorder(),
-                          ),
-                          validator: (value) {
-                            if (value!.trim().isEmpty ||
-                                !RegExp(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b')
-                                    .hasMatch(value)) {
-                              return 'Please Enter Valid Email';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      Container(
-                        color: const Color.fromRGBO(240, 241, 250, 0.4),
-                        margin: const EdgeInsets.only(top: 20, bottom: 5),
-                        child: TextFormField(
-                          controller: _passwordController,
-                          cursorColor: const Color.fromRGBO(34, 31, 31, 0.4),
-                          obscureText: _isPasswordVisiable,
-                          obscuringCharacter: "*",
-                          decoration: InputDecoration(
-                            prefixIcon: const Icon(
-                              Icons.lock_outline_rounded,
-                              size: 26,
-                              color: Color.fromRGBO(34, 31, 31, 0.4),
-                            ),
-                            suffixIcon: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  _isPasswordVisiable = !_isPasswordVisiable;
-                                });
-                              },
-                              child: Icon(
-                                _isPasswordVisiable
-                                    ? Icons.visibility_off_outlined
-                                    : Icons.visibility_outlined,
-                                size: 26,
-                                color: const Color.fromRGBO(34, 31, 31, 0.4),
-                              ),
-                            ),
-                            hintText: "  Enter your password",
-                            hintStyle: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w400,
-                                color: const Color.fromRGBO(34, 31, 31, 0.6),
-                                fontSize: 14),
-                            enabledBorder: commonOutlineInputBorder(),
-                            focusedBorder: commonOutlineInputBorder(),
-                            errorBorder: commonOutlineInputBorder(),
-                            focusedErrorBorder: commonOutlineInputBorder(),
-                          ),
-                          validator: (value) {
-                            if (value!.trim().isEmpty) {
-                              return "Please Enter Password";
-                            }
-
-                            if (!RegExp(
-                                    r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+={}|;\<>?,.\/~`\-\\[\]]).{8,}$')
-                                .hasMatch(value)) {
-                              return 'Please enter password with one uppercase letter, one lowercase letter, one digit,and one special character ';
-                            }
-                            return null;
-                          },
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Transform.scale(
-                            scale: 1.1,
-                            child: Checkbox(
-                                value: _isChecked,
-                                activeColor:
-                                    const Color.fromRGBO(64, 124, 226, 1),
-                                side: const BorderSide(
-                                    color: Color.fromRGBO(34, 31, 31, 0.4)),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                onChanged: (value) {
-                                  setState(() {
-                                    _isChecked = value!;
-                                  });
-                                }),
-                          ),
-                         
-                          Text.rich(TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "Remember Me?",
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w500,
-                                    color:
-                                        const Color.fromRGBO(34, 31, 31, 0.8),
-                                    fontSize: 13),
-                              ),
-                              TextSpan(
-                                text: " Terms & Agreement",
-                                style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w500,
-                                    color: const Color.fromRGBO(255, 58, 68, 1),
-                                    fontSize: 13),
-                              )
-                            ],
-                          )),
-                        ],
-                      ),
-                      const SizedBox(height: 30),
-                      GestureDetector(
-                        onTap: () {
-                          bool isValidated = _formKey.currentState!.validate();
-                          if (isValidated) {
-                            Navigator.of(context).pushNamed("/login");
+                        validator: (value) {
+                          if (value!.trim().isEmpty || value.length < 4) {
+                            return "Please Enter Name";
                           }
+                          return null;
                         },
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width,
-                          alignment: Alignment.center,
-                          height: 56,
-                          decoration: BoxDecoration(
-                              border: Border.all(
-                                  color:
-                                      const Color.fromRGBO(255, 179, 182, 1)),
-                              borderRadius: BorderRadius.circular(32),
-                              gradient: const LinearGradient(
-                                colors: [
-                                  Color.fromRGBO(255, 58, 68, 1),
-                                  Color.fromRGBO(255, 128, 134, 1),
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                              )),
-                          child: Text(
-                            "Sign Up",
-                            style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w600,
-                                color: const Color.fromRGBO(255, 255, 255, 1),
-                                fontSize: 21),
+                      ),
+                    ),
+                    Container(
+                      color: const Color.fromRGBO(240, 241, 250, 0.4),
+                      margin: const EdgeInsets.only(top: 20),
+                      child: TextFormField(
+                        controller: _phoneController,
+                        keyboardType: TextInputType.number,
+                        cursorColor: AppTheme.textColorLight,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.phone_outlined,
+                            size: 26,
+                            color: AppTheme.textColor.withOpacity(0.4),
+                          ),
+                          hintText: "  Enter your phone number",
+                          hintStyle: AppTheme
+                              .lightTheme.inputDecorationTheme.hintStyle,
+                          enabledBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.enabledBorder,
+                          focusedBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.focusedBorder,
+                          errorBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.errorBorder,
+                          focusedErrorBorder: AppTheme.lightTheme
+                              .inputDecorationTheme.focusedErrorBorder,
+                        ),
+                        validator: (value) {
+                          if (value!.trim().isEmpty) {
+                            return "Please Enter Mobile Number";
+                          }
+                          if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
+                            return 'Please enter a valid 10-digit mobile number';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Container(
+                      color: const Color.fromRGBO(240, 241, 250, 0.4),
+                      margin: const EdgeInsets.only(top: 20),
+                      child: TextFormField(
+                        controller: _emailController,
+                        keyboardType: TextInputType.emailAddress,
+                        cursorColor: AppTheme.textColorLight,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.email_outlined,
+                            size: 26,
+                            color: AppTheme.textColor.withOpacity(0.4),
+                          ),
+                          hintText: "  Enter your email",
+                          hintStyle: AppTheme
+                              .lightTheme.inputDecorationTheme.hintStyle,
+                          enabledBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.enabledBorder,
+                          focusedBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.focusedBorder,
+                          errorBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.errorBorder,
+                          focusedErrorBorder: AppTheme.lightTheme
+                              .inputDecorationTheme.focusedErrorBorder,
+                        ),
+                        validator: (value) {
+                          if (value!.trim().isEmpty ||
+                              !RegExp(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b')
+                                  .hasMatch(value)) {
+                            return 'Please Enter Valid Email';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Container(
+                      color: const Color.fromRGBO(240, 241, 250, 0.4),
+                      margin: const EdgeInsets.only(top: 20, bottom: 5),
+                      child: TextFormField(
+                        controller: _passwordController,
+                        cursorColor: AppTheme.textColorLight,
+                        obscureText: _isPasswordVisible,
+                        obscuringCharacter: "*",
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.lock_outline_rounded,
+                            size: 26,
+                            color: AppTheme.textColor.withOpacity(0.4),
+                          ),
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _isPasswordVisible = !_isPasswordVisible;
+                              });
+                            },
+                            child: Icon(
+                              _isPasswordVisible
+                                  ? Icons.visibility_off_outlined
+                                  : Icons.visibility_outlined,
+                              size: 26,
+                              color: AppTheme.textColor.withOpacity(0.4),
+                            ),
+                          ),
+                          hintText: "  Enter your password",
+                          hintStyle: AppTheme
+                              .lightTheme.inputDecorationTheme.hintStyle,
+                          enabledBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.enabledBorder,
+                          focusedBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.focusedBorder,
+                          errorBorder: AppTheme
+                              .lightTheme.inputDecorationTheme.errorBorder,
+                          focusedErrorBorder: AppTheme.lightTheme
+                              .inputDecorationTheme.focusedErrorBorder,
+                        ),
+                        validator: (value) {
+                          if (value!.trim().isEmpty) {
+                            return "Please Enter Password";
+                          }
+
+                          if (!RegExp(
+                                  r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()_+={}|;\<>?,.\/~`\-\\[\]]).{8,}$')
+                              .hasMatch(value)) {
+                            return 'Please enter password with one uppercase letter, one lowercase letter, one digit, and one special character ';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Transform.scale(
+                          scale: 1.1,
+                          child: Checkbox(
+                            value: _isChecked,
+                            activeColor: AppTheme.primaryColor,
+                            side: const BorderSide(
+                                color: AppTheme.textColorLight),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(6),
+                            ),
+                            onChanged: (value) {
+                              setState(() {
+                                _isChecked = value!;
+                              });
+                            },
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                      Text.rich(TextSpan(children: [
-                        TextSpan(
-                          text: "Already have an account?",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w400,
-                              color: const Color.fromRGBO(34, 31, 31, 1),
-                              fontSize: 14),
+                        Text.rich(TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Remember Me?",
+                              style: AppTheme.lightTheme.textTheme.bodySmall!
+                                  .copyWith(color: AppTheme.textColor),
+                            ),
+                            TextSpan(
+                              text: " Terms & Agreement",
+                              style: AppTheme.lightTheme.textTheme.bodySmall
+                                  ?.copyWith(
+                                color: AppTheme.primaryColor,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            )
+                          ],
+                        )),
+                      ],
+                    ),
+                    const SizedBox(height: 30),
+                    GestureDetector(
+                      onTap: () {
+                        bool isValidated = _formKey.currentState!.validate();
+                        if (isValidated) {
+                          Navigator.of(context).pushNamed("/login");
+                        }
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        alignment: Alignment.center,
+                        height: 56,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: AppTheme.primaryLightColor),
+                          borderRadius: BorderRadius.circular(32),
+                          gradient: AppTheme.primaryGradient,
                         ),
-                        WidgetSpan(
-                            child: GestureDetector(
+                        child: Text(
+                          "Sign Up",
+                          style: AppTheme.lightTheme.textTheme.labelLarge,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text.rich(TextSpan(children: [
+                      TextSpan(
+                        text: "Already have an account?",
+                        style: AppTheme.lightTheme.textTheme.bodyMedium,
+                      ),
+                      WidgetSpan(
+                        child: GestureDetector(
                           onTap: () {
                             Navigator.of(context).pushNamed("/login");
                           },
-                          child: Text(
-                            "  Sign In",
-                            style: GoogleFonts.poppins(
+                          child: Text("  Sign In",
+                              style: AppTheme.lightTheme.textTheme.bodyLarge
+                                  ?.copyWith(
                                 fontWeight: FontWeight.w600,
-                                color: const Color.fromRGBO(255, 58, 68, 1),
-                                fontSize: 14),
-                          ),
-                        ))
-                      ])),
-                    ],
-                  )),
+                                color: AppTheme.primaryColor,
+                              )),
+                        ),
+                      ),
+                    ])),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

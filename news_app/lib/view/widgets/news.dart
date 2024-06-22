@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:news_app/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:news_app/view/screens/details_screen.dart';
 import 'package:news_app/controller/news_provider.dart';
@@ -24,9 +24,11 @@ class _NewsState extends State<News> {
             color: const Color.fromRGBO(242, 242, 242, 1),
           ),
           child: PageView.builder(
-            itemCount: newsProvider.newsData.length, // Number of items in the PageView is determined by the length of newsData list in NewsProvider.
+            itemCount: newsProvider.newsData
+                .length, // Number of items in the PageView is determined by the length of newsData list in NewsProvider.
             itemBuilder: (context, pageIndex) {
-              final article = newsProvider.newsData[pageIndex]; // Get the article at the current index.
+              final article = newsProvider
+                  .newsData[pageIndex]; // Get the article at the current index.
               return GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -37,8 +39,7 @@ class _NewsState extends State<News> {
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     // Display the article image with network image.
                     Image.network(
@@ -51,11 +52,8 @@ class _NewsState extends State<News> {
                     // Display the title of the article.
                     Text(
                       article.title!,
-                      style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w700,
-                        color: const Color.fromRGBO(34, 31, 31, 1),
-                        fontSize: 18,
-                      ),
+                      style: AppTheme.lightTheme.textTheme.titleLarge
+                          ?.copyWith(fontSize: 18, color: AppTheme.textColor),
                     ),
                     const SizedBox(
                       height: 20,
@@ -66,9 +64,8 @@ class _NewsState extends State<News> {
                       children: [
                         Text(
                           article.date!,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w500,
-                            color: const Color.fromRGBO(34, 31, 31, 0.5),
+                          style: AppTheme.lightTheme.textTheme.titleMedium
+                              ?.copyWith(
                             fontSize: 13,
                           ),
                         ),

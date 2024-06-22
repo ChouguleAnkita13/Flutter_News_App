@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/view/widgets/menubar.dart';
+import 'package:news_app/theme/app_theme.dart'; // Import the theme file
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,10 +16,7 @@ class HomeScreen extends StatelessWidget {
         ),
         title: Text(
           "inshorts",
-          style: GoogleFonts.poppins(
-              fontWeight: FontWeight.w700,
-              color: const Color.fromRGBO(0, 0, 0, 1),
-              fontSize: 20),
+          style: AppTheme.lightTheme.textTheme.titleLarge, // Use the themed text style
         ),
         actions: [
           Container(
@@ -28,19 +25,13 @@ class HomeScreen extends StatelessWidget {
             margin: const EdgeInsets.only(right: 8),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                gradient: const LinearGradient(
-                  colors: [
-                    Color.fromRGBO(255, 128, 134, 1),
-                    Color.fromRGBO(255, 58, 68, 1),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                )),
+              borderRadius: BorderRadius.circular(100),
+              gradient: AppTheme.primaryGradient, // Use the themed gradient
+            ),
             child: GestureDetector(
               child: const Icon(
                 Icons.bookmark_outline,
-                color: Color.fromRGBO(240, 241, 250, 1),
+                color: AppTheme.iconColor, // Use the themed icon color
               ),
               onTap: () {
                 // Navigate to bookmarked news screen
