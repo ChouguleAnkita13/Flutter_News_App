@@ -12,7 +12,6 @@ class AppTheme {
       borderRadius: BorderRadius.circular(15),
     );
   }
-
   static TextStyle poppins({
     FontWeight fontWeight = FontWeight.w400,
     Color color = const Color.fromRGBO(34, 31, 31, 1),
